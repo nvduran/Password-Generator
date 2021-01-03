@@ -7,18 +7,35 @@ function getDigits(){
     return passDigits;
 }
 
+var getCase = function(){
+  var caseChoice1 = window.prompt("Would you like your password to include upper case or lower case? Enter 'UPPER' 'LOWER' or 'BOTH'");
+  var caseChoice = caseChoice1.toLowerCase();
+  return caseChoice;
+};
 
 function generatePassword() {
   
-  
-
   var length = getDigits(),
   letterset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*<>,./?",
   newPass = "";
   for (var i = 0, n = letterset.length; i < length; ++i) {
   newPass += letterset.charAt(Math.floor(Math.random() * n));
   }
-  return newPass;
+    var stringPass = newPass.toString();
+    var caseSelection = getCase();
+
+    if (caseSelection==="lower"){
+    var lowerPass = stringPass.toLowerCase();
+    return lowerPass;
+    }else if(caseSelection==="upper"){
+    var upperPass = stringPass.toUpperCase();
+    return upperPass;
+    }else if(caseSelection==="both"){
+    return stringPass;
+    }
+    
+  
+
 
 
 
