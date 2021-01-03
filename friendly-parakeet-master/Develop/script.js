@@ -1,12 +1,18 @@
 // Assignment code here
-var letters =
-    ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0");
 
+function getDigits(){
+  var characterNumber = window.prompt("How many digits would you like your password to be?");
+    var passDigits = parseInt(characterNumber);
+    console.log(passDigits);
+    return passDigits;
+}
 
 
 function generatePassword() {
   
-  var length = 8,
+  
+
+  var length = getDigits(),
   letterset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*<>,./?",
   newPass = "";
   for (var i = 0, n = letterset.length; i < length; ++i) {
@@ -15,7 +21,7 @@ function generatePassword() {
   return newPass;
 
 
-  //var characterNumber = window.prompt("How many digits would you like your password to be?");
+
 
 
   
