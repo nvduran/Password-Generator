@@ -13,12 +13,49 @@ var getCase = function(){
   return caseChoice;
 };
 
+var specialChars = function(){
+  var specialConfirm = window.confirm("Do you want your password to contain special characters?");
+  return specialConfirm;
+}
+
+var getNumeric = function(){
+  var numericConfirm = window.confirm("Do you want your password to contain numbers?");
+  return numericConfirm;
+}
+
 function generatePassword() {
+
+  var specialChoice = specialChars();
+    if (specialChoice === true){
+      lettersetLength = 76;
+      letterset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*<>,./?";
+    }else{
+      lettersetLength = 62;
+      letterset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    }
   
+var numericChoice = getNumeric();
+  if (numericChoice === true){
+    if(specialChoice === true){
+    lettersetLength = 76;
+    letterset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*<>,./?";
+    }else{
+    letterset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    }
+  }else{
+    if(specialChoice === true){
+    lettersetLength = 66;
+    letterset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*<>,./?";
+    }else{
+      letterset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+  }
+
   var length = getDigits(),
-  letterset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*<>,./?",
+
   newPass = "";
-  for (var i = 0, n = letterset.length; i < length; ++i) {
+  
+  for (var i = 0, n = lettersetLength; i < length; ++i) {
   newPass += letterset.charAt(Math.floor(Math.random() * n));
   }
     var stringPass = newPass.toString();
@@ -33,45 +70,7 @@ function generatePassword() {
     }else if(caseSelection==="both"){
     return stringPass;
     }
-    
   
-
-
-
-
-
-
-  
-  
-  
-  // var casingPrompt = window.prompt("Would you like your password to include upper case or lower case? Enter 'UPPER' or 'LOWER'");
-
-  //   switch (casingPrompt) {
-  //     case 'UPPER':
-  //     case 'upper':
-  //       upperCase();
-  //       break;
-      
-    
-  //     case 'LOWER':
-  //     case 'lower':
-  //       return "goodpassword";
-        
-
-  //     default:
-  //       window.alert('Invalid option, try again.')
-  //       break;
-  //   }
-  
-  // var numericPrompt = window.confirm ("Would you like your password to contain numbers?");
-  //   if (numericPrompt = true) {
-  //     return "1337";
-  //   }
-  //   else {
-  //     return ">:(";
-  //   }
-  // //return "123";
-
 }
 
 // Get references to the #generate element
