@@ -2,15 +2,28 @@
 
 function getDigits(){
   var characterNumber = window.prompt("How many digits would you like your password to be?");
-    var passDigits = parseInt(characterNumber);
-    console.log(passDigits);
-    return passDigits;
+    if (isNaN(characterNumber)){
+      window.alert("Invalid entry, try again.");
+      console.log("bad");
+    }else{
+      var passDigits = parseInt(characterNumber);
+      console.log(passDigits);
+      return passDigits;
+    }
+
 }
 
 var getCase = function(){
   var caseChoice1 = window.prompt("Would you like your password to include upper case or lower case? Enter 'UPPER' 'LOWER' or 'BOTH'");
   var caseChoice = caseChoice1.toLowerCase();
-  return caseChoice;
+  console.log(caseChoice);
+  if (caseChoice === "upper" || caseChoice === "lower" || caseChoice === "both" ) {
+    return caseChoice;
+    }
+  else{
+    window.alert("Invalid entry, try again.");
+    console.log("bad");
+    }
 };
 
 var specialChars = function(){
