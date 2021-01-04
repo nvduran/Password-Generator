@@ -1,1 +1,1 @@
-# Password Generator Starter Code
+This password generator will ask the user how many digits they would like their password to be, which case of characters they would like, and if they would like numbers and/or special characters. It alerts users if they have made a typing error in their responses. 
